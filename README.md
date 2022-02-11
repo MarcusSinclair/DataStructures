@@ -1,5 +1,5 @@
 # DataStructures
-My own implementations of data structures:
+My own implementations of data structures for learning and experimentation.
 
 ## TODO
 - [x] Arrays
