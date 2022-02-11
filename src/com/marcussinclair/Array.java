@@ -9,7 +9,6 @@ public class Array {
     public Array(int length) {
         this.items = new int[length];
     }
-
     private void resizeIfRequired() {
         if(count >= items.length) {
             int[] newItems = new int[count * 2];
@@ -19,13 +18,11 @@ public class Array {
             items = newItems;
         }
     } // O(n), går det att få ner till O(1)?
-
     public void insert(int item) {
         resizeIfRequired();
         items[count] = item;
         count++;
     } // O(1),
-
     public void removeAt(int index) {
         if (index < 0 || index >= count) {
             throw new IllegalArgumentException();
@@ -36,7 +33,6 @@ public class Array {
         }
         count--;
     } // O(n)
-
     public int indexOf(int value) {
         for (int i = 0; i < count; i++) {
             if (items[i] == value) {
@@ -45,13 +41,11 @@ public class Array {
         }
         return -1;
     } // O(n)
-
     public void print() {
         for (int i = 0; i < count; i++) {
             System.out.println(items[i]);
         }
     } // O(n)
-
     public int max() { // O(n)
         int max = 0;
         for (int i = 0; i < count; i++) {
@@ -61,7 +55,6 @@ public class Array {
         }
         return max;
     } // O(n)
-
     public Array intersect(Array other) {
         Array intersect = new Array(count);
         for (int thisValue : items) {
@@ -71,7 +64,6 @@ public class Array {
         }
         return intersect;
     } // O(n) * O(n) = O(n^2), kan man undvika dubletter?
-
     public void reverse() {
         int[] reversedArray = new int[count];
         int forwardIndex = 0;
@@ -81,7 +73,6 @@ public class Array {
         }
         items = reversedArray;
     } // O(n)
-
     public void insertAt(int item, int index) {
         resizeIfRequired();
         if (index > count || index < 0) {
