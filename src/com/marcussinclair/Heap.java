@@ -17,6 +17,15 @@ public class Heap {
 
         bubbleUp();
     }
+
+    private void bubbleUp() {
+        var currentIndex = size - 1;
+        while (currentIndex > 0 && items[currentIndex] > items[parentOf(currentIndex)]) {
+            swapValuesOf(currentIndex, parentOf(currentIndex));
+            currentIndex = parentOf(currentIndex);
+        }
+    }
+
     public void remove() {
         if (size == 0)
             return;
@@ -52,13 +61,11 @@ public class Heap {
     private boolean isFull() {
         return size >= items.length;
     }
-    private void bubbleUp() {
-        var currentIndex = size - 1;
-        while (currentIndex > 0 && items[currentIndex] > items[parentOf(currentIndex)]) {
-            swapValuesOf(currentIndex, parentOf(currentIndex));
-            currentIndex = parentOf(currentIndex);
-        }
+
+    private boolean isEmpty() {
+        return size == 0;
     }
+
     private int parentOf(int index) {
         return (index - 1) / 2;
     }
@@ -66,5 +73,12 @@ public class Heap {
         var secondValue = items[secondIndex];
         items[secondIndex] = items[firstIndex];
         items[firstIndex] = secondValue;
+    }
+
+    public int max() {
+        if (isEmpty()) {
+            throw new IllegalStateException();
+        }
+        return items[0];
     }
 }

@@ -1,21 +1,16 @@
 package com.marcussinclair;
 
+import java.util.Arrays;
 import java.util.Queue;
 
 public class Main {
 
     public static void main(String[] args) {
-        var graph = new Graph();
+        int[] numbers = {5, 3, 8, 4, 1, 2};
+        MaxHeap.heapify(numbers);
 
-        graph.addNode("A");
-        graph.addNode("B");
-        graph.addNode("C");
+        System.out.println(Arrays.toString(numbers));
+        System.out.println(MaxHeap.getKthLargest(numbers, 7));
 
-        graph.addEdge("A", "B");
-        graph.addEdge("B", "C");
-        graph.addEdge("A", "C");
-        graph.addEdge("C", "A");
-
-        System.out.println(graph.hasCycle());
     }
 }
